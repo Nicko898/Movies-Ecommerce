@@ -40,7 +40,7 @@ Sigue estos pasos para instalar y configurar el proyecto en tu entorno local:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/Nicko898/Movies-Ecommerce.git
+   git clone https://github.com/YoelLazarte/Movies-Ecommerce.git
    ```
 
 2. **Configurar la base de datos:**
