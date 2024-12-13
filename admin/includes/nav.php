@@ -1,109 +1,91 @@
-        <div class="background">
-            <nav class="menu__wrapper container">
-                <div class="menu__bar">
-                    <a
-                        href="index.php?seccion=principal"
-                        title="Logo"
-                        class="logo"
-                    >
-                        <img src="../img/logo.webp" alt="">
+<div class="flex flex-wrap -mx-3 sm:mb-5">
+  <div class="px-3 mb-6  mx-auto w-11/12 bg-white rounded-xl">
+      <div class="sm:flex items-stretch justify-between grow lg:mb-0  pt-5 px-5">
+    <div class="flex flex-col flex-wrap justify-center sm:mb-5 mr-3 lg:mb-0">
+    <span class="my-0 flex text-dark font-semibold text-[1.35rem]/[1.2] flex-col justify-center">
+        Hola! <?= $_SESSION["login"]["usuario"]?>
+    </span>
+        <span class="pt-1 text-secondary-dark text-[0.95rem] font-medium">
+            Panel de administradores
+        </span>
+    </div>
+    <div class="flex items-center lg:shrink-0 lg:flex-nowrap">
+      
+      <div class="relative flex items-center ml-2 lg:ml-4">
+        <a class="flex items-center justify-between w-full py-2 px-1 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto" href="../index.php?sec=home">Home</a>  
+      </div>
+
+      <div class="relative flex items-center ml-2 lg:ml-4">
+          <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">Productos
+            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+          </button>
+          
+            <!-- Dropdown menu -->
+            <div id="dropdownNavbar" class="z-50 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
+                  <li>
+                    <a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="index.php?seccion=admin_pelicula"><?php if (isset($_GET["seccion"]) && $_GET["seccion"] == "admin_pelicula") {
+                      echo "<b>Películas</b>"; } else {
+                      echo "Películas";} ?>
                     </a>
-                    <ul class="navigation hide">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="../index.php?sec=home">Home</a>  
-                        </li>
+                  </li>
+                  <li>
+                    <a href="index.php?seccion=admin_director" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><?php if (isset($_GET["seccion"]) && $_GET["seccion"] == "admin_director") {
+                      echo "<b>Director</b>"; } else {
+                      echo "Director"; } ?>
+                    </a>
+                  </li>
+                  <li>
+                    
+                    <a href="index.php?seccion=admin_categoria" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white "><?php if (isset($_GET["seccion"]) && $_GET["seccion"] == "admin_categoria") {
+                      echo "<b>Categoria</b>"; } else {
+                      echo "Categoria"; } ?>
+                    </a>
+                  </li>
+                </ul>
+            </div>      
+      </div>
+      
+      
+    
+    <div class="relative flex items-center ml-2 lg:ml-4">
+        <a href="index.php?seccion=usuarios" class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg> -->
 
-                        <li class="nav-item">
-                        <a class="nav-link text-light btn btn-secondary" href="index.php?seccion=principal"><?php if (!isset($_GET["seccion"]) || $_GET["seccion"] == "principal") {
-                                echo "<b>Principal</b>";
-                            } else {
-                                echo "Principal";
-                            } ?></a>
-                        </li>
+        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"><path d="M9,12c3.309,0,6-2.691,6-6S12.309,0,9,0,3,2.691,3,6s2.691,6,6,6Zm0-10c2.206,0,4,1.794,4,4s-1.794,4-4,4-4-1.794-4-4,1.794-4,4-4Zm1.75,14.22c-.568-.146-1.157-.22-1.75-.22-3.86,0-7,3.14-7,7,0,.552-.448,1-1,1s-1-.448-1-1c0-4.962,4.038-9,9-9,.762,0,1.519,.095,2.25,.284,.535,.138,.856,.683,.719,1.218-.137,.535-.68,.856-1.218,.719Zm12.371-4.341c-1.134-1.134-3.11-1.134-4.243,0l-6.707,6.707c-.755,.755-1.172,1.76-1.172,2.829v1.586c0,.552,.448,1,1,1h1.586c1.069,0,2.073-.417,2.828-1.172l6.707-6.707c.567-.567,.879-1.32,.879-2.122s-.312-1.555-.878-2.121Zm-1.415,2.828l-6.708,6.707c-.377,.378-.879,.586-1.414,.586h-.586v-.586c0-.534,.208-1.036,.586-1.414l6.708-6.707c.377-.378,1.036-.378,1.414,0,.189,.188,.293,.439,.293,.707s-.104,.518-.293,.707Z"/></svg>
 
-                        <li>
-                            <button>
-                                Productos
-                                <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
-                                    <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
-                                </svg>
-                            </button>
-                            <div class="dropdown">
-                                <ul class="list-items-with-description">
-                                    <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path fill="#ffd45e" d="M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2m.001 6c-.001 0-.001 0 0 0h-.466l-2.667-4H20zM9.535 9L6.868 5h2.597l2.667 4zm5 0l-2.667-4h2.597l2.667 4zM4 5h.465l2.667 4H4zm0 14v-8h16l.002 8z"/></svg>
-                                    <div class="item-title">
+        </a>
+    </div>
 
-                                        <a class="" href="index.php?seccion=admin_pelicula"><?php if (isset($_GET["seccion"]) && $_GET["seccion"] == "admin_pelicula") {
-                                            echo "<b>Películas</b>";
-                                        } else {
-                                        echo "Películas";
-                                        } ?></a>
-                                        <p>Editar Películas</p>
+    <div class="relative flex items-center ml-2 lg:ml-4">
+        <a href="javascript:void(0)" class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        </a>
+    </div>
+    <div class="relative flex items-center ml-2 lg:ml-4">
+        <a href="javascript:void(0)" class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"></path>
+        </svg>
+        </a>
+    </div>
+    <div class="relative flex items-center ml-2 lg:ml-4">
+        <a href="index.php?seccion=perfil" class="flex items-center justify-center w-12 h-12 text-base font-semibold leading-normal text-center text-white align-middle transition-colors duration-150 ease-in-out shadow-none cursor-pointer rounded-2xl bg-[#caeaff] hover:bg-primary-dark active:bg-primary-dark focus:bg-primary-dark ">
+        <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" class="w-6 h-6"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
+      </a>
+    </div>
+    </div>
+</div>
+  </div>
+</div>
+</div>
 
-                                        </div>
-                                    </li>
-                                   
-                                    <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 48 48"><g fill="none" stroke="#ffd45e" stroke-width="4"><path stroke-linejoin="round" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path stroke-linejoin="round" d="M24 18a3 3 0 1 0 0-6a3 3 0 0 0 0 6Zm0 18a3 3 0 1 0 0-6a3 3 0 0 0 0 6Zm-9-9a3 3 0 1 0 0-6a3 3 0 0 0 0 6Zm18 0a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"/><path stroke-linecap="round" d="M24 44h20"/></g></svg>
-                                    <div class="item-title">
-                                        <a class="" href="index.php?seccion=admin_director"><?php if (isset($_GET["seccion"]) && $_GET["seccion"] == "admin_director") {
-                                            echo "<b>Directores</b>";
-                                        } else {
-                                            echo "Directores";
-                                        } ?></a>
 
-                                        <p>Editar Directores</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path fill="#ffd45e" d="M7.425 9.475L11.15 3.4q.15-.25.375-.363T12 2.925t.475.113t.375.362l3.725 6.075q.15.25.15.525t-.125.5t-.35.363t-.525.137h-7.45q-.3 0-.525-.137T7.4 10.5t-.125-.5t.15-.525M17.5 22q-1.875 0-3.187-1.312T13 17.5t1.313-3.187T17.5 13t3.188 1.313T22 17.5t-1.312 3.188T17.5 22M3 20.5v-6q0-.425.288-.712T4 13.5h6q.425 0 .713.288T11 14.5v6q0 .425-.288.713T10 21.5H4q-.425 0-.712-.288T3 20.5m14.5-.5q1.05 0 1.775-.725T20 17.5t-.725-1.775T17.5 15t-1.775.725T15 17.5t.725 1.775T17.5 20M5 19.5h4v-4H5zM10.05 9h3.9L12 5.85zm7.45 8.5"/></svg>
-                                        <div class="item-title">
-                                        <a class="" href="index.php?seccion=admin_categoria"><?php if (isset($_GET["seccion"]) && $_GET["seccion"] == "admin_categoria") {
-                                            echo "<b>Categorías</b>";
-                                        } else {
-                                            echo "Categorías";
-                                        } ?></a>
-                                        <p>Editar Categorías</p>
-
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                        <a class="nav-link text-light btn btn-secondary" href="index.php?seccion=usuarios"><?php if (!isset($_GET["seccion"]) || $_GET["seccion"] == "usuarios") {
-                                echo "<b>Usuarios</b>";
-                            } else {
-                                echo "Usuarios";
-                            } ?></a>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="action-buttons">
-                <?php if( isset($_SESSION["login"]) ){ ?>       
-                        <li class="nav-item">
-                            <a href="index.php?seccion=perfil" title="Sign up" class="primary "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="me-2 mb-1"><g fill="none"><path stroke="#ffffff" stroke-width="1.5" d="M21 12a8.958 8.958 0 0 1-1.526 5.016A8.991 8.991 0 0 1 12 21a8.991 8.991 0 0 1-7.474-3.984A9 9 0 1 1 21 12Z"/><path fill="#ffffff" d="M13.25 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0 0 14.75 9zM12 10.25c-.69 0-1.25-.56-1.25-1.25h-1.5A2.75 2.75 0 0 0 12 11.75zM10.75 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0 0 9.25 9zM12 7.75c.69 0 1.25.56 1.25 1.25h1.5A2.75 2.75 0 0 0 12 6.25zM5.166 17.856l-.719-.214l-.117.392l.267.31zm13.668 0l.57.489l.266-.31l-.117-.393zM9 15.75h6v-1.5H9zm0-1.5a4.752 4.752 0 0 0-4.553 3.392l1.438.428A3.252 3.252 0 0 1 9 15.75zm3 6a8.23 8.23 0 0 1-6.265-2.882l-1.138.977A9.73 9.73 0 0 0 12 21.75zm3-4.5c1.47 0 2.715.978 3.115 2.32l1.438-.428A4.752 4.752 0 0 0 15 14.25zm3.265 1.618A8.23 8.23 0 0 1 12 20.25v1.5a9.73 9.73 0 0 0 7.403-3.405z"/></g></svg><?= $_SESSION["login"]["usuario"]?></a>
-                        </li>    
-                        <?php }else{ ?>
-                        <li class="nav-item">
-                            <a title="Sign in" class="secondary hide" href="index.php?sec=login">><?php if (isset($_GET["seccion"]) && $_GET["seccion"] == "login") {
-                                echo "<b>Login</b>";
-                            } else {
-                                echo "Login";
-                            } ?></a>
-                        </li>
-                    <?php } ?> 
-                </div>
-                <button class="burger-menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M4 6l16 0"></path>
-                        <path d="M4 12l16 0"></path>
-                        <path d="M4 18l16 0"></path>
-                    </svg>
-                </button>
-            </nav>
-        </div>

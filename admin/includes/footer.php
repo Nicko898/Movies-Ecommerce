@@ -3,12 +3,14 @@
             <div class="footer-wrapper">
                 <div class="footer-columns">
                     <section class="footer-logo">
-                        <h2>
-                            <svg width="1103" height="996" viewBox="0 0 1103 996" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M410.988 255.56L0 995.337H189.802L505.141 427.427L410.988 255.56ZM1102.94 995.337L647.119 170.373L551.471 0L457.317 170.373L551.471 340.746L711.79 629.718H498.683L405.461 786.972H799.034L914.634 995.337H1102.94Z" fill="#FAFBFC"/>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M410.988 255.56L0 995.337H189.802L505.141 427.427L410.988 255.56ZM1102.94 995.337L647.119 170.373L551.471 0L457.317 170.373L551.471 340.746L711.79 629.718H498.683L405.461 786.972H799.034L914.634 995.337H1102.94Z" fill="#FAFBFC"/>
-                            </svg>
-                        </h2>
+                      <h2>
+                          <a
+                            href="index.php?sec=home"
+                            title="Logo"
+                            class="logo" >
+                             <img src="../img/logo.png" class="h-16" alt="">
+                          </a>
+                      </h2>
                     </section>
                     <section>
                         <h3>Producto</h3>
@@ -153,7 +155,7 @@
                         </span>
                      </span>
 
-                    <small>© FilmLens. 2024, Todos los derechos reservados</small>
+                    <small>© Stream. 2024, Todos los derechos reservados</small>
                 </div>
             </div>
         </footer>

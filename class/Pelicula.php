@@ -42,6 +42,7 @@ class Pelicula{
         return $pelicula;
     }
 
+
     public function catalogoCompleto(){
         $catalogo = [];
         $conexion = Conexion::getConexion();
@@ -61,6 +62,39 @@ class Pelicula{
 
         return $catalogo;
 } 
+
+
+// catalogoCompleto con paginacion......Terminar......
+
+// public function catalogoCompleto(int $pagina = 1, int $registrosPorPagina = 10): array
+
+// {
+//     $catalogo = [];
+//     $conexion = Conexion::getConexion();
+
+//     // Calcular el OFFSET
+//     $offset = ($pagina - 1) * $registrosPorPagina;
+
+//     // Consulta con LIMIT y OFFSET para paginación
+//     $query = 'SELECT peliculas.*, GROUP_CONCAT(pelicula_categoria.id_categoria) AS 
+//               categorias_secundarias FROM peliculas
+//               LEFT JOIN pelicula_categoria ON peliculas.id = pelicula_categoria.id_pelicula
+//               GROUP BY peliculas.id
+//               LIMIT :limit OFFSET :offset';
+
+//     $PDOStatement = $conexion->prepare($query);
+//     $PDOStatement->setFetchMode(PDO::FETCH_ASSOC);
+//     $PDOStatement->bindParam(':limit', $registrosPorPagina, PDO::PARAM_INT);
+//     $PDOStatement->bindParam(':offset', $offset, PDO::PARAM_INT);
+//     $PDOStatement->execute();
+
+//     while ($pelicula = $PDOStatement->fetch()) {
+//         $catalogo[] = $this->mapear($pelicula);
+//     }
+
+//     return $catalogo;
+// }
+
 
     // Catalogo_x_id
     public function catalogoPorId($id){

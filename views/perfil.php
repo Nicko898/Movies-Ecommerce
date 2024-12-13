@@ -114,10 +114,10 @@ $historialCompras = $miCarrito->getHistorialCompras($id_usuario);
 		</a> 
     </div>
 </div>
+</div>
 
 
-		</div>
-		<div class="col-12 col-md-6 mt-md-5 mb-md-5">
+		<!-- <div class="col-12 col-md-6 mt-md-5 mb-md-5">
 		<div class="contenido">
                 <article class="table-widget">
 		            <div class="caption">
@@ -169,7 +169,7 @@ $historialCompras = $miCarrito->getHistorialCompras($id_usuario);
                 </div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 
 

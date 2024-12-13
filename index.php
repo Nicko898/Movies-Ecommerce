@@ -13,7 +13,7 @@
             'titulo' => 'Filtros de Productos'
         ],
         'home' => [
-            'titulo' => 'FilmLens'
+            'titulo' => 'Stream'
         ],
         'productos' => [
             'titulo' => 'Peliculas'
@@ -69,28 +69,36 @@ include_once 'class/Pelicula.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <?= isset($seccionesValidas[$vista]['titulo']) ? $seccionesValidas[$vista]['titulo'] : 'Error 404'?> </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    
+    <!-- <link rel="stylesheet" href="css/tailwind.css"> -->
+
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles2.css">
 
     <link rel="stylesheet" href="css/footer.css">
-    
     <link rel="stylesheet" href="css/login.css">
 
-    <link rel="stylesheet" href="css/tablas_perfil.css">
+    <!-- <link rel="stylesheet" href="css/tablas_perfil.css">   -->
     <link rel="stylesheet" href="css/tarjeta_perfil.css">
 </head>
-<body>
-<?php include_once 'includes/nav.php';
+<body class="">
 
-file_exists("views/$vista.php") 
+<?php include_once 'includes/nav.php'; ?>
+
+<main class="mt-10">
+
+<?php file_exists("views/$vista.php") 
                 ? include "views/$vista.php" 
-                : include "views/error404.php";
+                : include "views/error404.php";?>
+
+</main>
 
 
-include_once 'includes/footer.php' ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<?php include_once 'includes/footer.php' ?>
+
+<script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+
 </body>
 </html>

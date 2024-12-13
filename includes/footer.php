@@ -1,17 +1,15 @@
-<footer>
+<footer class="mt-20">
             <div class="footer-line"></div>
             <div class="footer-wrapper">
                 <div class="footer-columns">
                     <section class="footer-logo">
                         <h2>
-                            <a
-                        href="index.php?sec=home"
-                        title="Logo"
-                        class="logo"
-                    >
-                        <img src="img/logo.webp" alt="">
-                    </a>
-
+                          <a
+                            href="index.php?sec=home"
+                            title="Logo"
+                            class="logo" >
+                             <img src="img/logo.png" class="h-16" alt="">
+                          </a>
                         </h2>
                     </section>
                     <section>
@@ -157,7 +155,7 @@
                         </span>
                      </span>
 
-                    <small>© FilmLens. 2024, Todos los derechos reservados</small>
+                    <small>© Stream. 2024, Todos los derechos reservados</small>
                 </div>
             </div>
         </footer>

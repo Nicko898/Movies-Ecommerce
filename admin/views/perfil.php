@@ -17,9 +17,9 @@ $historialCompras = $miCarrito->getHistorialCompras($id_usuario);
 	<!-- <img src="<?= $_SESSION["login"]["foto_perfil"] ?>" alt="<?= $_SESSION["login"]["usuario"]?>" class="img-fluid rounded-circle mb-4"> -->
 
 
-<div class="contenedor_perfil">
+<div class="contenedor_perfil my-10">
 	<div class="row">
-		<div class="col-12 col-md-6 mt-md-5 mb-md-5">
+		<div class="">
 			<div class="">
 			<div class="perfil">
 			        <header class="perfil__header">
@@ -36,7 +36,6 @@ $historialCompras = $miCarrito->getHistorialCompras($id_usuario);
 			                </div>
             </div>
             <div class="perfil_avatar">
-				<!-- cambiar foto de perfil -->
 				<a href="../index.php?sec=edit_foto&id=<?= $usuario->getId() ?>" class="">
 					<img src="../img/usuario.webp" loading="lazy" alt="Mentor profile">
 				</a>
@@ -116,7 +115,7 @@ $historialCompras = $miCarrito->getHistorialCompras($id_usuario);
 
 
 		</div>
-		<div class="col-12 col-md-6 mt-md-5 mb-md-5">
+		<!-- <div class="col-12 col-md-6 mt-md-5 mb-md-5">
 		<div class="contenido">
                 <article class="table-widget">
 		            <div class="caption">
@@ -168,7 +167,6 @@ $historialCompras = $miCarrito->getHistorialCompras($id_usuario);
                 </div>
 		</div>
 	</div>
-</div>
-
+</div> -->
 
 

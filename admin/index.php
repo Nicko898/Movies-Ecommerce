@@ -72,19 +72,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ADMIN: <?= isset($seccionesValidas[$vista]['titulo']) ? $seccionesValidas[$vista]['titulo'] : 'Error 404'?> </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-
-    
+    <title><?= isset($seccionesValidas[$vista]['titulo']) ? $seccionesValidas[$vista]['titulo'] : 'Error 404'?> </title>
 
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/tablas.css">
-    <link rel="stylesheet" href="css/cartas.css">
 
-    <link rel="stylesheet" href="../css/tablas_perfil.css">
+    <!-- <link rel="stylesheet" href="../css/tablas_perfil.css"> -->
     <link rel="stylesheet" href="../css/tarjeta_perfil.css">
 
 </head>
@@ -101,7 +94,9 @@
     include_once 'includes/footer.php'
     ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 
 </body>
 </html>

@@ -2,92 +2,208 @@
 
 $peliculas = (new Pelicula())->catalogoCompleto();
 
+// Paginacion....
+// Página actual
+// $pagina = 2; 
+// Registros por página
+// $registrosPorPagina = 10; 
+// $peliculas = (new Pelicula())->catalogoCompleto($pagina, $registrosPorPagina);
+
+
 ?>
 
+       <!-- max-w-[720px] -->
+<div class="max-w-[920px] mx-auto">
 
-<div class="contenido">
-<article class="table-widget mt-5 mb-5">
-		<div class="caption">
-			<h2>
-			Administración de Películas
-			</h2>	
-		</div>
-		<table>
-			<thead>
-				<tr>
-					<th>
-						Portada
-					</th>
-					<th>
-						Nombre
-					</th>
-					<th>
-						Director
-					</th>
-					<th>
-						Categoría
-					</th>
-					<th>
-						Sinópsis	
-					</th>
-					<th>
-						Precio	
-					</th>
-					<th>
-						<a href="index.php?seccion=add_pelicula" class="export-btn">
-							<svg id="Layer_1" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="m12 0a12 12 0 1 0 12 12 12.013 12.013 0 0 0 -12-12zm0 22a10 10 0 1 1 10-10 10.011 10.011 0 0 1 -10 10zm5-10a1 1 0 0 1 -1 1h-3v3a1 1 0 0 1 -2 0v-3h-3a1 1 0 0 1 0-2h3v-3a1 1 0 0 1 2 0v3h3a1 1 0 0 1 1 1z"/></svg>
-							 Acciones
-						</a>	
-					</th>
-				</tr>
-			</thead>
-			<tbody id="team-member-rows">
-			<?php foreach ($peliculas as $pelicula) { ?>
-				    <tr>
-					<td class="">
-						<img src="../img/<?= $pelicula->getImagen() ?>" alt="<?= $pelicula->getNombre() ?>" class="img-fluid rounded shadow-sm">
-					</td>
-					<td>
-						<div class="status">
-							<div class="status__circle status--active"></div>
-							<?= $pelicula->getNombre() ?>
-						</div>
-					</td>
-					<td><?= $pelicula->getDirector_id() ?></td>
-					<td>
-						<div class="tags">
-							<div class="tag tag--marketing">
-							<?= $pelicula->getCategoria_id() ?>
-							</div>
-						</div>
-					</td>
-					<td>
-					<div class="tags">
-							<?= $pelicula->getSinopsis() ?>
-						</div>
-					</td>
-					<td>
-					<div class="tags">
-					<div class="tag tag--design">
-							$<?= $pelicula->getPrecio() ?>
-							</div>
-					</div>
-					</td>
-					<td class="">
-					<a href="index.php?seccion=edit_pelicula&id=<?= $pelicula->getId() ?>" class="export-btn">
-						<!-- <img src="../img/iconos/editar.svg" alt=""> -->
-						<svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M18.656.93,6.464,13.122A4.966,4.966,0,0,0,5,16.657V18a1,1,0,0,0,1,1H7.343a4.966,4.966,0,0,0,3.535-1.464L23.07,5.344a3.125,3.125,0,0,0,0-4.414A3.194,3.194,0,0,0,18.656.93Zm3,3L9.464,16.122A3.02,3.02,0,0,1,7.343,17H7v-.343a3.02,3.02,0,0,1,.878-2.121L20.07,2.344a1.148,1.148,0,0,1,1.586,0A1.123,1.123,0,0,1,21.656,3.93Z"/><path d="M23,8.979a1,1,0,0,0-1,1V15H18a3,3,0,0,0-3,3v4H5a3,3,0,0,1-3-3V5A3,3,0,0,1,5,2h9.042a1,1,0,0,0,0-2H5A5.006,5.006,0,0,0,0,5V19a5.006,5.006,0,0,0,5,5H16.343a4.968,4.968,0,0,0,3.536-1.464l2.656-2.658A4.968,4.968,0,0,0,24,16.343V9.979A1,1,0,0,0,23,8.979ZM18.465,21.122a2.975,2.975,0,0,1-1.465.8V18a1,1,0,0,1,1-1h3.925a3.016,3.016,0,0,1-.8,1.464Z"/></svg>
-						Editar
-					</a>
-					<a href="index.php?seccion=delete_pelicula&id=<?= $pelicula->getId() ?>" class="export-btn mt-3">
-						<!-- <img src="../img/iconos/basura.svg" alt=""> -->
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512"><g id="_01_align_center" data-name="01 align center"><path d="M22,4H17V2a2,2,0,0,0-2-2H9A2,2,0,0,0,7,2V4H2V6H4V21a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V6h2ZM9,2h6V4H9Zm9,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V6H18Z"/><rect x="9" y="10" width="2" height="8"/><rect x="13" y="10" width="2" height="8"/></g></svg>
-						Eliminar
-					</a>
-					</td>
-				</tr>
+    <div class="relative flex flex-col w-full h-full text-slate-700 bg-white shadow-md rounded-xl bg-clip-border">
+        <div class="relative mx-4 mt-4 overflow-hidden text-slate-700 bg-white rounded-none bg-clip-border">
+            <div class="flex items-center justify-between ">
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800">Administración de Películas</h3>
+                    <p class="text-slate-500">Edita, elimina o crea nuevas peliculas!</p>
+                </div>
+            <div class="flex flex-col gap-2 shrink-0 sm:flex-row">
+                <!-- <button
+                class="rounded border border-slate-300 py-2.5 px-3 text-center text-xs font-semibold text-slate-600 transition-all hover:opacity-75 focus:ring focus:ring-slate-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button">
+                View All
+                </button> -->
+
+                <a href="index.php?seccion=add_pelicula" class="btn flex select-none items-center gap-2 rounded bg-slate-800 py-2.5 px-4 text-xs font-semibold text-white shadow-md shadow-slate-900 transition-all hover:shadow-lg hover:shadow-slate-900 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+							    <svg id="Layer_1" viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" fill="currentColor"><path d="m12 0a12 12 0 1 0 12 12 12.013 12.013 0 0 0 -12-12zm0 22a10 10 0 1 1 10-10 10.011 10.011 0 0 1 -10 10zm5-10a1 1 0 0 1 -1 1h-3v3a1 1 0 0 1 -2 0v-3h-3a1 1 0 0 1 0-2h3v-3a1 1 0 0 1 2 0v3h3a1 1 0 0 1 1 1z"/></svg>
+                  Agregar
+                </a>
+            </div>
+            </div>
+        
+        </div>
+        <div class="p-0 overflow-scroll">
+            <table class="w-full mt-4 text-left table-auto min-w-max">
+            <thead>
+                <tr>
+                <th
+                    class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                    <p
+                    class="flex items-center justify-between gap-2 font-sans text-sm font-normal leading-none text-slate-500">
+                    Portada
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" aria-hidden="true" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
+                    </svg>
+                    </p>
+                </th>
+                <th
+                    class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                    <p
+                    class="flex items-center justify-between gap-2 font-sans text-sm font-normal leading-none text-slate-500">
+                    Director
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" aria-hidden="true" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
+                    </svg>
+                    </p>
+                </th>
+                <th
+                    class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                    <p
+                    class="flex items-center justify-between gap-2 font-sans text-sm  font-normal leading-none text-slate-500">
+                    Categoría
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" aria-hidden="true" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
+                    </svg>
+                    </p>
+                </th>
+                <th
+                    class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                    <p
+                    class="flex items-center justify-between gap-2 font-sans text-sm  font-normal leading-none text-slate-500">
+                    Sinópsis
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" aria-hidden="true" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
+                    </svg>
+                    </p>
+                </th>
+				<th
+                    class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                    <p
+                    class="flex items-center justify-between gap-2 font-sans text-sm  font-normal leading-none text-slate-500">
+                    Precio
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" aria-hidden="true" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path>
+                    </svg>
+                    </p>
+                </th>
+                <th class="p-4 transition-colors cursor-pointer border-y border-slate-200 bg-slate-50 hover:bg-slate-100">
+                  <p class="flex items-center justify-between gap-2 font-sans text-sm  font-normal leading-none text-slate-500">
+                    Acciones  
+                  </p>
+                </th>
+                </tr>
+            </thead>
+            <tbody>
+			<?php foreach ($peliculas as $pelicula) { 
+        $recortarDescripcion = ( new Pelicula() )->recortarDescripcion(($pelicula->getSinopsis()));  
+      ?>
+                <tr>
+                <td class="p-4 border-b border-slate-200">
+                    <div class="flex items-center gap-3">
+                    <img src="../img/<?= $pelicula->getImagen() ?>"
+                        alt="<?= $pelicula->getNombre() ?>" class="relative inline-block h-9 w-9 !rounded-full object-cover object-center" />
+                    <div class="flex flex-col">
+                        <p class="text-sm font-semibold text-slate-700">
+                          <?= $pelicula->getNombre() ?>
+                        </p>
+                        <!-- <p
+                        class="text-sm text-slate-500">
+                        john@creative-tim.com
+                        </p> -->
+                    </div>
+                    </div>
+                </td>
+                <td class="p-4 border-b border-slate-200">
+                    <div class="flex flex-col">
+                    <p class="text-sm font-semibold text-slate-700">
+                      <?= $pelicula->getDirector_id() ?>
+                    </p>
+                    <!-- <p class="text-sm text-slate-500">
+                        Organization
+                    </p> -->
+                    </div>
+                </td>
+                <td class="p-4 border-b border-slate-200">
+                    <div class="w-max">
+                    <div
+                        class="relative grid items-center px-2 py-1 font-sans text-xs font-bold text-green-900 uppercase rounded-md select-none whitespace-nowrap bg-green-500/20">
+                        <span class=""><?= $pelicula->getCategoria_id() ?></span>
+                    </div>
+                    </div>
+                </td>
+                <td class="p-4 border-b border-slate-200">
+                    <p class="text-sm text-slate-500">
+                    <?= $recortarDescripcion ?>
+                    </p>
+                </td>
+				        <td class="p-4 border-b border-slate-200">
+                    <p class="text-sm text-slate-500">
+                    $<?= $pelicula->getPrecio() ?>
+                    </p>
+                </td>
+                <td class="p-4 border-b border-slate-200 relative">
+
+                    <a href="index.php?seccion=delete_pelicula&id=<?= $pelicula->getId() ?>" class="btn relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-slate-900 transition-all hover:bg-slate-900/10 active:bg-slate-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                    <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-6 h-6">
+                        <path d="M10 12V17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 12V17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 7H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    </a>
+                    
+                    <a href="index.php?seccion=edit_pelicula&id=<?= $pelicula->getId() ?>" class="btn relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-slate-900 transition-all hover:bg-slate-900/10 active:bg-slate-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                    <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                        class="w-4 h-4">
+                        <path
+                            d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z">
+                        </path>
+                        </svg>
+                    </span>
+                    </a>
+
+                </td>
+                </tr>
 				<?php } ?>
-			</tbody>
-		</table>
-	</article>
+            </tbody>
+            </table>
+        </div>
+        <div class="flex items-center justify-between p-3">
+            <p class="block text-sm text-slate-500">
+            Page 1 of 10
+            </p>
+            <div class="flex gap-1">
+            <button
+                class="rounded border border-slate-300 py-2.5 px-3 text-center text-xs font-semibold text-slate-600 transition-all hover:opacity-75 focus:ring focus:ring-slate-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button">
+                Previous
+            </button>
+            <button
+                class="rounded border border-slate-300 py-2.5 px-3 text-center text-xs font-semibold text-slate-600 transition-all hover:opacity-75 focus:ring focus:ring-slate-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button">
+                Next
+            </button>
+            </div>
+        </div>
+        </div>
+        
 </div>
